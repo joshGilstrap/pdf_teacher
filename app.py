@@ -103,7 +103,7 @@ st. set_page_config("Fact-Checker", layout='centered')
 inject_custom_css()
 st.title("Fact-Checking Agent")
 
-PINECONE_SPI_KEY = st.secrets["pinecone_api_key"]
+PINECONE_API_KEY = st.secrets["pinecone_api_key"]
 GROQ_API_KEY = st.secrets["groq_api_key"]
 INDEX_NAME = "rag"
 
@@ -114,7 +114,7 @@ def get_embeddings():
 embeddings = get_embeddings()
 
 try:
-    pc = Pinecone(PINECONE_SPI_KEY)
+    pc = Pinecone(PINECONE_API_KEY)
     index = pc.Index(INDEX_NAME)
 except Exception as e:
     st.error(f"Failed to connect to Pinecone: {e}")
@@ -140,7 +140,7 @@ with st.sidebar:
         with st.spinner("Reading your PDF..."):
             
             try:
-                pc = Pinecone(api_key=PINECONE_SPI_KEY)
+                pc = Pinecone(api_key=PINECONE_API_KEY)
                 index = pc.Index(INDEX_NAME)
                 index.delete(delete_all=True)
             except Exception as e:
