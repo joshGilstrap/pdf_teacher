@@ -91,7 +91,7 @@ PINECONE_API_KEY = "pcsk_..."
 
 Run the App
 ```
-streamlit run rag_app.py
+streamlit run app.py
 ```
 
 ## Key Code Snippet: The Ingestion Logic
